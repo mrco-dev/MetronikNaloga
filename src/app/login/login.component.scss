@@ -1,0 +1,38 @@
+.login_form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow: 0px 8px 15px -3px rgba(0, 0, 0, 0.3);
+  padding: 2rem;
+  border-radius: 10px;
+  margin-top: 5rem;
+  margin-inline: auto;
+  max-width: 500px;
+}
+
+.form_group {
+  display: flex;
+  flex-direction: column;
+  label {
+    margin-bottom: 4px;
+  }
+  input {
+    padding: 8px;
+  }
+}
+
+.login_error {
+  margin-inline: auto;
+  max-width: 500px;
+  border: 1px solid #ff3333;
+  color: #ff3333;
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 5rem;
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+  + .login_form {
+    margin-top: 1rem;
+  }
+}

@@ -1,0 +1,29 @@
+<section class="container">
+  <div id="credentialsError" class="login_error" *ngIf="loginError">
+    Vnesite pravilno uporabniško ime in geslo
+  </div>
+  <div id="loginError" class="login_error" *ngIf="formEmpty">
+    Vnesite uporabniško ime in geslo
+  </div>
+  <form class="login_form" [formGroup]="loginForm" (submit)="login()">
+    <div class="form_group">
+      <label for="username">Uporabniško ime</label>
+      <input
+        id="username"
+        type="text"
+        placeholder="Janez Novak"
+        formControlName="username"
+      />
+    </div>
+    <div class="form_group">
+      <label for="password">Geslo</label>
+      <input
+        id="password"
+        type="password"
+        placeholder="Geslo"
+        formControlName="password"
+      />
+    </div>
+    <button type="submit">Prijava</button>
+  </form>
+</section>

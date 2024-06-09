@@ -1,0 +1,326 @@
+<section class="container">
+  <div class="orders_list">
+    <div *ngFor="let order of orders" class="order_item">
+      <h2 class="order_item_title">Order ID: {{ order.orderId }}</h2>
+      <p class="order_item_detail">OMS ID: {{ order.omsId }}</p>
+      <div class="products_wrapper">
+        <h3>Products:</h3>
+        <div *ngFor="let product of order.products" class="product_item">
+          <p class="product_item_name">{{ product.productName }}</p>
+          <div class="product_item_left">
+            <img
+              [src]="product.imageUrl"
+              alt="{{ product.productName }}"
+              width="100"
+            />
+          </div>
+          <div class="product_item_right">
+            <p><b>GTIN:</b> {{ product.gtin }}</p>
+            <p><b>Quantity:</b> {{ product.quantity }}</p>
+            <p><b>Serial Number Type:</b> {{ product.serialNumberType }}</p>
+            <p>
+              <b>Serial Numbers:</b>
+              {{
+                isArray(product.serialNumbers)
+                  ? product.serialNumbers.join(", ")
+                  : product.serialNumbers
+              }}
+            </p>
+            <p><b>Template ID:</b> {{ product.templateId }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="order_details_wrapper">
+        <h3>Order Details:</h3>
+        <p><b>Factory ID:</b> {{ order.orderDetails?.factoryId }}</p>
+        <p><b>Factory Name:</b> {{ order.orderDetails?.factoryName }}</p>
+        <p><b>Factory Address:</b> {{ order.orderDetails?.factoryAddress }}</p>
+        <p><b>Factory Country:</b> {{ order.orderDetails?.factoryCountry }}</p>
+        <p>
+          <b>Production Line ID:</b> {{ order.orderDetails?.productionLineId }}
+        </p>
+        <p><b>Product Code:</b> {{ order.orderDetails?.productCode }}</p>
+        <p>
+          <b>Product Description:</b>
+          {{ order.orderDetails?.productDescription }}
+        </p>
+        <p><b>PO Number:</b> {{ order.orderDetails?.poNumber }}</p>
+        <p>
+          <b>Expected Start Date:</b>
+          {{ order.orderDetails?.expectedStartDate }}
+        </p>
+      </div>
+      <button (click)="editOrder(order)">Edit</button>
+    </div>
+  </div>
+
+  <div #orderFormWrapper>
+    <h2>{{ isEditing ? "Edit Order" : "Add Order" }}</h2>
+    <form [formGroup]="orderForm" (ngSubmit)="submitOrder()">
+      <div>
+        <label for="omsId">OMS ID*:</label>
+        <input id="omsId" formControlName="omsId" type="text" />
+        <div
+          *ngIf="
+            orderForm.get('omsId')?.invalid && orderForm.get('omsId')?.touched
+          "
+        >
+          <span
+            class="error_message"
+            *ngIf="orderForm.get('omsId')?.errors?.['required']"
+            >OMS ID is required.</span
+          >
+        </div>
+      </div>
+      <div formArrayName="products">
+        <div
+          *ngFor="let product of products.controls; let i = index"
+          [formGroupName]="i"
+        >
+          <h3>Product {{ i + 1 }}</h3>
+          <div>
+            <label for="gtin-{{ i }}">GTIN*:</label>
+            <input id="gtin-{{ i }}" formControlName="gtin" type="text" />
+            <div
+              *ngIf="
+                product.get('gtin')?.invalid && product.get('gtin')?.touched
+              "
+            >
+              <span
+                class="error_message"
+                *ngIf="product.get('gtin')?.errors?.['required']"
+                >GTIN is required.</span
+              >
+            </div>
+          </div>
+          <div>
+            <label for="quantity-{{ i }}">Quantity*:</label>
+            <input
+              id="quantity-{{ i }}"
+              formControlName="quantity"
+              type="number"
+            />
+            <div
+              *ngIf="
+                product.get('quantity')?.invalid &&
+                product.get('quantity')?.touched
+              "
+            >
+              <span
+                class="error_message"
+                *ngIf="product.get('quantity')?.errors?.['required']"
+                >Quantity is required.</span
+              >
+            </div>
+          </div>
+          <div>
+            <label for="serialNumberType-{{ i }}">Serial Number Type*:</label>
+            <input
+              id="serialNumberType-{{ i }}"
+              formControlName="serialNumberType"
+              type="text"
+            />
+            <div
+              *ngIf="
+                product.get('serialNumberType')?.invalid &&
+                product.get('serialNumberType')?.touched
+              "
+            >
+              <span
+                class="error_message"
+                *ngIf="product.get('serialNumberType')?.errors?.['required']"
+                >Serial Number Type is required.</span
+              >
+            </div>
+          </div>
+          <div>
+            <label for="serialNumbers-{{ i }}"
+              >Serial Numbers (comma-separated)*:</label
+            >
+            <input
+              id="serialNumbers-{{ i }}"
+              formControlName="serialNumbers"
+              type="text"
+            />
+            <div
+              *ngIf="
+                product.get('serialNumbers')?.invalid &&
+                product.get('serialNumbers')?.touched
+              "
+            >
+              <span
+                class="error_message"
+                *ngIf="product.get('serialNumbers')?.errors?.['required']"
+                >Serial Numbers are required.</span
+              >
+            </div>
+          </div>
+          <div>
+            <label for="templateId-{{ i }}">Template ID*:</label>
+            <input
+              id="templateId-{{ i }}"
+              formControlName="templateId"
+              type="text"
+            />
+            <div
+              *ngIf="
+                product.get('templateId')?.invalid &&
+                product.get('templateId')?.touched
+              "
+            >
+              <span
+                class="error_message"
+                *ngIf="product.get('templateId')?.errors?.['required']"
+                >Template ID is required.</span
+              >
+            </div>
+          </div>
+          <div>
+            <label for="productName-{{ i }}">Product Name:</label>
+            <input
+              id="productName-{{ i }}"
+              formControlName="productName"
+              type="text"
+            />
+          </div>
+          <div>
+            <label for="imageUrl-{{ i }}">Image URL:</label>
+            <input
+              id="imageUrl-{{ i }}"
+              formControlName="imageUrl"
+              type="text"
+            />
+          </div>
+          <button type="button" (click)="removeProductFormGroup(i)">
+            Remove Product
+          </button>
+        </div>
+      </div>
+      <button type="button" (click)="addProductFormGroup()">Add Product</button>
+      <div formGroupName="orderDetails">
+        <h3>Order Details</h3>
+        <div>
+          <label for="factoryId">Factory ID*:</label>
+          <input id="factoryId" formControlName="factoryId" type="text" />
+          <div
+            *ngIf="
+              orderForm.get('orderDetails.factoryId')?.invalid &&
+              orderForm.get('orderDetails.factoryId')?.touched
+            "
+          >
+            <span
+              class="error_message"
+              *ngIf="orderForm.get('orderDetails.factoryId')?.errors?.['required']"
+              >Factory ID is required.</span
+            >
+          </div>
+        </div>
+        <div>
+          <label for="factoryName">Factory Name:</label>
+          <input id="factoryName" formControlName="factoryName" type="text" />
+        </div>
+        <div>
+          <label for="factoryAddress">Factory Address:</label>
+          <input
+            id="factoryAddress"
+            formControlName="factoryAddress"
+            type="text"
+          />
+        </div>
+        <div>
+          <label for="factoryCountry">Factory Country*:</label>
+          <input
+            id="factoryCountry"
+            formControlName="factoryCountry"
+            type="text"
+          />
+          <div
+            *ngIf="
+              orderForm.get('orderDetails.factoryCountry')?.invalid &&
+              orderForm.get('orderDetails.factoryCountry')?.touched
+            "
+          >
+            <span
+              class="error_message"
+              *ngIf="orderForm.get('orderDetails.factoryCountry')?.errors?.['required']"
+              >Factory Country is required.</span
+            >
+          </div>
+        </div>
+        <div>
+          <label for="productionLineId">Production Line ID*:</label>
+          <input
+            id="productionLineId"
+            formControlName="productionLineId"
+            type="text"
+          />
+          <div
+            *ngIf="
+              orderForm.get('orderDetails.productionLineId')?.invalid &&
+              orderForm.get('orderDetails.productionLineId')?.touched
+            "
+          >
+            <span
+              class="error_message"
+              *ngIf="orderForm.get('orderDetails.productionLineId')?.errors?.['required']"
+              >Production Line ID is required.</span
+            >
+          </div>
+        </div>
+        <div>
+          <label for="productCode">Product Code*:</label>
+          <input id="productCode" formControlName="productCode" type="text" />
+          <div
+            *ngIf="
+              orderForm.get('orderDetails.productCode')?.invalid &&
+              orderForm.get('orderDetails.productCode')?.touched
+            "
+          >
+            <span
+              class="error_message"
+              *ngIf="orderForm.get('orderDetails.productCode')?.errors?.['required']"
+              >Product Code is required.</span
+            >
+          </div>
+        </div>
+        <div>
+          <label for="productDescription">Product Description*:</label>
+          <input
+            id="productDescription"
+            formControlName="productDescription"
+            type="text"
+          />
+          <div
+            *ngIf="
+              orderForm.get('orderDetails.productDescription')?.invalid &&
+              orderForm.get('orderDetails.productDescription')?.touched
+            "
+          >
+            <span
+              class="error_message"
+              *ngIf="orderForm.get('orderDetails.productDescription')?.errors?.['required']"
+              >Product Description is required.</span
+            >
+          </div>
+        </div>
+        <div>
+          <label for="poNumber">PO Number:</label>
+          <input id="poNumber" formControlName="poNumber" type="text" />
+        </div>
+        <div>
+          <label for="expectedStartDate">Expected Start Date:</label>
+          <input
+            id="expectedStartDate"
+            formControlName="expectedStartDate"
+            type="date"
+          />
+        </div>
+      </div>
+
+      <button type="submit">
+        {{ isEditing ? "Update Order" : "Add Order" }}
+      </button>
+      <button type="button" (click)="resetForm()">Cancel</button>
+    </form>
+  </div>
+</section>

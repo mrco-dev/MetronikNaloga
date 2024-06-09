@@ -1,0 +1,239 @@
+{
+  "users": [
+    {
+      "username": "admin",
+      "password": "admin"
+    }
+  ],
+  "orders": [
+    {
+      "omsId": "0645848",
+      "products": [
+        {
+          "gtin": "01334567894339",
+          "quantity": 3,
+          "serialNumberType": "SELF_MADE",
+          "serialNumbers": ["XT6c84e", "2kY39Om", "X4ebssJ"],
+          "templateId": "3",
+          "imageUrl": "https://picsum.photos/200/300",
+          "productName": "Kitten Toy"
+        },
+        {
+          "gtin": "01334567894338",
+          "quantity": 5,
+          "serialNumberType": "SELF_MADE",
+          "serialNumbers": ["AB3CDE1", "FG2HIJ3"],
+          "templateId": "4",
+          "imageUrl": "https://picsum.photos/200/305",
+          "productName": "Cat Food"
+        }
+      ],
+      "orderDetails": {
+        "factoryId": "12345678901234",
+        "factoryName": "Factory A",
+        "factoryAddress": "1234 Factory Road",
+        "factoryCountry": "USA",
+        "productionLineId": "Line-1",
+        "productCode": "Prod-001",
+        "productDescription": "A fun toy for kittens.",
+        "poNumber": "PO1234",
+        "expectedStartDate": "2024-06-01"
+      },
+      "orderId": "05f52b01-ba4b-4dc7-a94a-7846db44ac63",
+      "expectedCompletionTime": 6131
+    },
+    {
+      "omsId": "0645849",
+      "products": [
+        {
+          "gtin": "01334567894340",
+          "quantity": 5,
+          "serialNumberType": "SELF_MADE",
+          "serialNumbers": [
+            "Y7gdfk8",
+            "H9kd83D",
+            "N3kd8sA",
+            "L2k9d4F",
+            "B8jd93L"
+          ],
+          "templateId": "4",
+          "imageUrl": "https://picsum.photos/200/301",
+          "productName": "Cat Bed"
+        },
+        {
+          "gtin": "01334567894341",
+          "quantity": 2,
+          "serialNumberType": "SELF_MADE",
+          "serialNumbers": ["Z7h82aE", "J8k29Ld"],
+          "templateId": "5",
+          "imageUrl": "https://picsum.photos/200/306",
+          "productName": "Cat Collar"
+        }
+      ],
+      "orderDetails": {
+        "factoryId": "12345678901235",
+        "factoryName": "Factory B",
+        "factoryAddress": "5678 Factory Lane",
+        "factoryCountry": "Canada",
+        "productionLineId": "Line-2",
+        "productCode": "Prod-002",
+        "productDescription": "A cozy bed for cats.",
+        "poNumber": "PO5678",
+        "expectedStartDate": "2024-07-01"
+      },
+      "orderId": "12g54c01-ba4b-4dc7-a94a-7846db44ac67",
+      "expectedCompletionTime": 1234
+    },
+    {
+      "omsId": "0645850",
+      "products": [
+        {
+          "gtin": "01334567894341",
+          "quantity": 2,
+          "serialNumberType": "SELF_MADE",
+          "serialNumbers": ["Z7h82aE", "J8k29Ld"],
+          "templateId": "5",
+          "imageUrl": "https://picsum.photos/200/302",
+          "productName": "Cat Scratcher"
+        },
+        {
+          "gtin": "01334567894342",
+          "quantity": 4,
+          "serialNumberType": "SELF_MADE",
+          "serialNumbers": ["R3k8d93", "M6p8d4L", "S8n7d2F", "W9m7d1A"],
+          "templateId": "6",
+          "imageUrl": "https://picsum.photos/200/307",
+          "productName": "Cat Tower"
+        },
+        {
+          "gtin": "01334567894343",
+          "quantity": 1,
+          "serialNumberType": "SELF_MADE",
+          "serialNumbers": ["N8k29Md"],
+          "templateId": "7",
+          "imageUrl": "https://picsum.photos/200/308",
+          "productName": "Cat Blanket"
+        }
+      ],
+      "orderDetails": {
+        "factoryId": "12345678901236",
+        "factoryName": "Factory C",
+        "factoryAddress": "9101 Factory Avenue",
+        "factoryCountry": "Mexico",
+        "productionLineId": "Line-3",
+        "productCode": "Prod-003",
+        "productDescription": "A scratching post for cats.",
+        "poNumber": "PO9101",
+        "expectedStartDate": "2024-08-01"
+      },
+      "orderId": "23f54d01-ba4b-4dc7-a94a-7846db44ac68",
+      "expectedCompletionTime": 5678
+    },
+    {
+      "omsId": "0645851",
+      "products": [
+        {
+          "gtin": "01334567894342",
+          "quantity": 4,
+          "serialNumberType": "SELF_MADE",
+          "serialNumbers": ["R3k8d93", "M6p8d4L", "S8n7d2F", "W9m7d1A"],
+          "templateId": "6",
+          "imageUrl": "https://picsum.photos/200/303",
+          "productName": "Cat Tree"
+        },
+        {
+          "gtin": "01334567894344",
+          "quantity": 3,
+          "serialNumberType": "SELF_MADE",
+          "serialNumbers": ["G7h72aF", "J8k29Hd", "P9n38Xe"],
+          "templateId": "8",
+          "imageUrl": "https://picsum.photos/200/309",
+          "productName": "Cat Toy Mouse"
+        }
+      ],
+      "orderDetails": {
+        "factoryId": "12345678901237",
+        "factoryName": "Factory D",
+        "factoryAddress": "1213 Factory Blvd",
+        "factoryCountry": "Germany",
+        "productionLineId": "Line-4",
+        "productCode": "Prod-004",
+        "productDescription": "A cat tree for climbing.",
+        "poNumber": "PO1213",
+        "expectedStartDate": "2024-09-01"
+      },
+      "orderId": "34g54e01-ba4b-4dc7-a94a-7846db44ac69",
+      "expectedCompletionTime": 7890
+    },
+    {
+      "omsId": "0645852",
+      "products": [
+        {
+          "gtin": "01334567894343",
+          "quantity": 6,
+          "serialNumberType": "SELF_MADE",
+          "serialNumbers": [
+            "Q2k7d9S",
+            "L8m7d4F",
+            "C3p8d9K",
+            "V4k9d2B",
+            "A7m8d1Z",
+            "T8n7d3J"
+          ],
+          "templateId": "7",
+          "imageUrl": "https://picsum.photos/200/304",
+          "productName": "Cat Toy Set"
+        },
+        {
+          "gtin": "01334567894345",
+          "quantity": 2,
+          "serialNumberType": "SELF_MADE",
+          "serialNumbers": ["K5m28Fs", "T9p37Yn"],
+          "templateId": "9",
+          "imageUrl": "https://picsum.photos/200/310",
+          "productName": "Catnip"
+        }
+      ],
+      "orderDetails": {
+        "factoryId": "12345678901238",
+        "factoryName": "Factory E",
+        "factoryAddress": "1415 Factory Street",
+        "factoryCountry": "Japan",
+        "productionLineId": "Line-5",
+        "productCode": "Prod-005",
+        "productDescription": "A set of toys for cats.",
+        "poNumber": "PO1415",
+        "expectedStartDate": "2024-10-01"
+      },
+      "orderId": "45h54f01-ba4b-4dc7-a94a-7846db44ac70",
+      "expectedCompletionTime": 3456
+    },
+    {
+      "omsId": "0645852",
+      "products": [
+        {
+          "gtin": "01334456894343",
+          "quantity": 2,
+          "serialNumberType": "SELF_MADE",
+          "serialNumbers": "Q2k7d9S",
+          "templateId": "9",
+          "productName": "Cat toy",
+          "imageUrl": "https://picsum.photos/200/305"
+        }
+      ],
+      "orderDetails": {
+        "factoryId": "12345678901238",
+        "factoryName": "Factory 8",
+        "factoryAddress": "neki neki 123",
+        "factoryCountry": "Slovenija",
+        "productionLineId": "Prod-llin 123",
+        "productCode": "Prod-010",
+        "productDescription": "Cat toys",
+        "poNumber": "4226",
+        "expectedStartDate": "2024-06-18"
+      },
+      "orderId": "45h54f01-ba4b-4dc7-a94a-7846db44ac67",
+      "expectedCompletionTime": 123456
+    }
+  ]
+}

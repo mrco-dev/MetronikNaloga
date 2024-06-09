@@ -1,0 +1,30 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", "Arial";
+  margin: 0;
+}
+
+.container {
+  max-width: 1228px;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+button {
+  font-weight: 700;
+  padding: 12px 24px;
+  background: #f78f1e;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
